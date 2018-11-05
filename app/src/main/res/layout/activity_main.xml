@@ -10,7 +10,8 @@
         android:id="@+id/textViewGasolina"
         android:layout_width="95dp"
         android:layout_height="25dp"
-        android:layout_marginEnd="80dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="220dp"
         android:text="@string/text_gasolina"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editAlcool" />
@@ -28,41 +29,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <faranjit.currency.edittext.CurrencyEditText
         android:id="@+id/editAlcool"
         android:layout_width="154dp"
         android:layout_height="54dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="24dp"
         android:layout_marginBottom="128dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="128dp"
         android:ems="10"
+        android:hint="R$0,00"
         android:inputType="numberDecimal"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/btnCalc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:locale="pt_BR"
+        app:showSymbol="true" />
 
-    <EditText
-        android:id="@+id/editGasolina"
+    <faranjit.currency.edittext.CurrencyEditText
+        android:id="@+id/editAlcool"
         android:layout_width="154dp"
         android:layout_height="54dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="128dp"
         android:layout_marginBottom="128dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="128dp"
         android:ems="10"
+        android:hint="R$0,00"
         android:inputType="numberDecimal"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/btnCalc"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:locale="pt_BR"
+        app:showSymbol="true" />
 
     <TextView
         android:id="@+id/textViewAlcool"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:layout_marginStart="36dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="64dp"
         android:text="@string/litroGasolina"
         android:textAlignment="viewEnd"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editGasolina" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editAlcool" />
 
     <Button
         android:id="@+id/btnCalc"
@@ -84,11 +94,14 @@
         android:id="@+id/resultEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="48dp"
         android:textSize="@dimen/resultTxt"
         app:layout_constraintBottom_toTopOf="@+id/btnCalc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMainTitle"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="155dp" />
+        app:layout_constraintVertical_bias="1.0" />
 </android.support.constraint.ConstraintLayout>

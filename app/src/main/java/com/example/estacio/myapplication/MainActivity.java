@@ -4,17 +4,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+
+import java.text.ParseException;
+
+import faranjit.currency.edittext.CurrencyEditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText mEditAlcool;
-    private EditText mEditGasolina;
+    private CurrencyEditText mEditAlcool;
+    private CurrencyEditText mEditGasolina;
     private Button mBtn_Calc;
     private TextView result;
 
-    float number1 = 0,number2=0;
+    double number1 = 0,number2=0;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,20 +25,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
             result = findViewById(R.id.resultEdit);
             mEditAlcool  = findViewById(R.id.editAlcool);
-            mEditGasolina = findViewById(R.id.editGasolina);
+            mEditGasolina = findViewById(R.id.editAlcool);
             mBtn_Calc = findViewById(R.id.btnCalc);
 
         mBtn_Calc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            number1 =  Float.valueOf(mEditAlcool.getText().toString());
-            number2 =  Float.valueOf(mEditGasolina.getText().toString());
-            if ( number1 * 0.7 >= number2)
-            result.setText("Vá de alcool");
-            else
-                result.setText("Vá de Gasolina");
-        }
+                try {
+                    calculate(mEditAlcool.getCurrencyDouble(),mEditGasolina.getCurrencyDouble());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
     });
+        }
+    private void calculate(double alcoolValue, double gasolinaValue) {
+        if(alcoolValue / gasolinaValue > 0.7) {
+            result.setText("Gasolina");
+        }
+            result.setText("Alcool");
+
 
     }
+
 }
